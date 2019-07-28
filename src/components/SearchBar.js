@@ -27,17 +27,18 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-        <div className={'ui segment'}>
-          <form onSubmit={this.onFormSubmit} className={'ui form'}>
-            <input
-              type="search"
-              value={this.state.term}
-              placeholder={`Image searcher... (write a word)`}
-              onChange={this.onInputChange}
-            />
-            { this.hasFound() }
-          </form>
-        </div>
+      <div className={'ui segment'}>
+        <p>Write a word, then click ENTER</p>
+        <form onSubmit={this.onFormSubmit} className={'ui form'}>
+          <input
+            type="search"
+            value={this.state.term}
+            placeholder={`car, cat, flower, wood, human, face....`}
+            onChange={this.onInputChange}
+          />
+          {this.hasFound()}
+        </form>
+      </div>
     )
   }
 }

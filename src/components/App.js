@@ -12,19 +12,18 @@ class App extends React.Component {
   }
 
   onSearchSubmit = async (term) => {
-     const response = await unsplash.get('/search/photos', {
-      params: { query: term, per_page: 30 },
+    const response = await unsplash.get('/search/photos', {
+      params: {query: term, per_page: 30},
     });
 
-     console.log(response);
-
-     this.setState({images: response.data.results})
+    this.setState({images: response.data.results})
 
   };
 
   render() {
     return (
       <div className={'ui container'} style={{marginTop: '20px'}}>
+        <h1>Search photos</h1>
         <SearchBar onSubmit={this.onSearchSubmit} found={this.state.images.length}/>
         <ImageList images={this.state.images}/>
       </div>
